@@ -1,0 +1,16 @@
+to plot shaded area:
+[m, e] = analysisCore.stderr(data, type); % type can be SE 2SE SD 2SD CIMEAN CIMEDIAN
+that gets you the mean and error for the curve. and then:
+analysisCore.areabar(x, m, e, color, alpha, plotoptions)
+[color alpha and plotoptions are optional]
+
+-------------------------
+full example:
+y=rand(10,20); % 10 repeats  
+[m,e]=analysisCore.stderr(y,'SE');
+x=1:20;
+analysisCore.areabar(x, m, e, [0.5 0.2 0], 0.25)
+
+use matlab commands to add title and text etc.
+xlabel('Time'); ylabel('Amplitude');title('Test'); box on; grid on
+to add another plot -> hold on
